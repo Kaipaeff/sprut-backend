@@ -47,4 +47,4 @@ RUN mkdir -p /app/uploads
 EXPOSE 8000
 
 # Production-ish server (works for local too)
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8000", "--timeout", "120", "app:app"]
