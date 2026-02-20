@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: flask-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # optional: enable more verbose logs
+      - LOG_LEVEL=INFO
+    volumes:
+      # Persist SQLite and uploads on host
+      - ./data.db:/app/data.db
+      - ./uploads:/app/uploads
+    restart: unless-stopped
